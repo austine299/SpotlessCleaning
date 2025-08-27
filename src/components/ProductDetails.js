@@ -6,11 +6,9 @@ import { CartContext } from "../components/CartContext";
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
 
-
 function ProductDetail() {
   const { id } = useParams();
-  const { addToCart, showCart } =
-    useContext(CartContext);
+  const { addToCart, showCart } = useContext(CartContext);
 
   const allProducts = Object.values(products).flat();
   const product = allProducts.find((item) => item.id.toString() === id);
@@ -32,7 +30,6 @@ function ProductDetail() {
             {product.name}
           </span>
         </div>
-       
       </div>
 
       {/* Show Cart if true */}
@@ -43,12 +40,31 @@ function ProductDetail() {
       )}
       <div className=" flex items-center p-8 max-w-4xl mx-auto h-screen">
         <div className="flex flex-col md:flex-row gap-8 items-center">
-          <img
-            src={`${process.env.PUBLIC_URL}/images/${product.image}`}
-            alt={product.name}
-            className="w-1/2 object-cover rounded-md"
-          />
-          <div>
+          <div className="flex flex-col gap-2 w-full">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/${product.image}`}
+              alt={product.name}
+              className="w-full object-cover rounded-lg mb-4"
+            />
+            <div className="w-full flex gap-4 justify-center">
+              <img
+                src={`${process.env.PUBLIC_URL}/images/${product.tumb1}`}
+                alt={product.name}
+                className="w-[20%] rounded-lg"
+              />
+              <img
+                src={`${process.env.PUBLIC_URL}/images/${product.tumb2}`}
+                alt={product.name}
+                className="w-[20%] rounded-lg"
+              />
+              <img
+                src={`${process.env.PUBLIC_URL}/images/${product.tumb3}`}
+                alt={product.name}
+                className="w-[20%] rounded-lg"
+              />
+            </div>
+          </div>
+          <div className="w-full">
             <h1 className="text-3xl font-bold mb-3">{product.name}</h1>
             <div>
               <span className="text-2xl font-extrabold">Features</span>
@@ -60,7 +76,6 @@ function ProductDetail() {
                 {product.description}
               </p>
             </div>
-            <p className="text-gray-700 mb-6">{product.description}</p>
             <div className="flex flex-col w-fit">
               <button
                 onClick={() => addToCart(product)}

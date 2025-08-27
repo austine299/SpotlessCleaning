@@ -1,150 +1,201 @@
 const product = {
-  Highlander: [
+  Bmw: [
+    {
+      id: 32,
+      name: "2015 BMW X6",
+      feature: "2015 BMW X6 Black body with Tan + Black interior.",
+      description: "2015 BMW X6 Sporty luxury SUV coupe with powerful engine options, AWD, premium leather interior, advanced tech, and dynamic handling. Stylish and performance-driven.",
+      image: "bmw/bmw_1.jpg",
+      tumb1: "bmw/bmw_2.jpg",
+      tumb2: "bmw/bmw_3.jpg",
+      tumb3: "bmw/bmw_4.jpg"
+    }
+  ],
+
+  Honda: [
+    {
+      id: 30,
+      name: "2017 Honda Pilot EX-L",
+      feature: "2017 Honda Pilot EX-L w/ Honda Sensing Sport Utility 4D White exterior.",
+      description: "2017 Honda Pilot EX-L Spacious 3-row SUV with V6 power, leather seats, sunroof, power tailgate, and Honda Sensing safety features. Smooth ride, great for families and long trips.",
+      image: "honda/HondaPilot2017_1.jpg",
+      tumb1: "honda/HondaPilot2017_2.jpg",
+      tumb2: "honda/HondaPilot2017_3.jpg",
+      tumb3: "honda/HondaPilot2017_4.jpg"
+    
+    },
+  ],
+  Lexus: [
+    {
+      id: 26,
+      name: "2010 Lexus GX",
+      feature: "2010 Lexus GX- Gold Exterior, Beige Interior Smooth, spacious, and ready for Nigerian roads.",
+      description: "2010 Lexus GX 460 Luxury 7-passenger SUV with 4WD, powerful V8 engine, premium interior, advanced safety, and off-road capability. Smooth, quiet ride with Lexus reliability.",
+      image: "lexus/lexusgx_1.jpg",
+      tumb1: "lexus/lexusgx_2.jpg",
+      tumb2: "lexus/lexusgx_3.jpg",
+      tumb3: "lexus/lexusgx_4.jpg"
+    
+    },
+    {
+      id: 27,
+      name: "Lexus GX 460 Premium Sport Utility 4D",
+      feature: " Lexus GX 460 Premium Sport Utility 4D in pristine white Luxury meets durability  perfect for Nigerian roads..",
+      description: "Lexus GX 460 Premium 4D SUV Luxury 4WD SUV with V8 power, leather seats, navigation, sunroof, heated/cooled seats, and third-row seating. Smooth, capable, and built for comfort on or off-road.",
+      image: "lexus460/lexus460_1.jpg",
+      tumb1: "lexus460/lexus460_2.jpg",
+      tumb2: "lexus460/lexus460_3.jpg",
+      tumb3: "lexus460/lexus460_4.jpg"
+    
+    },
+  ],
+  Toyota: [
     {
       id: 1,
-      name: "Highlander-LE-2412",
-      feature: "2.5L 4-cylinder engine, Apple CarPlay, Toyota Safety Sense",
-      description: "A dependable SUV with modern tech and efficient performance, perfect for families and long-distance travel.",
-      image: "Highlander-LE-2412.webp",
+      name: "2017 Toyota Highlander ",
+      feature: "2017 Toyota Highlander Grey Exterior, Grey Interior Smooth, spacious, and ready for Nigerian roads.",
+      description:
+        "2017 Toyota Highlander The 2017 Toyota Highlander is a reliable and family-friendly midsize SUV with seating for up to eight. It features a strong V6 engine, available all-wheel drive, and advanced safety tech including Toyota Safety Sense. With a spacious interior, smooth ride, and up to 5,000 lbs towing capacity, it’s perfect for both daily driving and road trips.",
+      image: "highlander/highlander2017_1.jpg",
+      tumb1: "highlander/highlander2017_2.jpg",
+      tumb2: "highlander/highlander2017_3.jpg",
+      tumb3: "highlander/highlander2017_4.jpg"
     },
     {
       id: 2,
-      name: "Highlander-XLE-2412",
-      feature: "Leather-trimmed seats, Blind Spot Monitor, Sunroof",
-      description: "Blending comfort and technology, the XLE is designed for luxurious everyday driving.",
-      image: "Highlander-XLE-2412-.webp",
+      name: "2018 Toyota Highlander",
+      feature: "2018 Toyota Highlander – Blue Exterior, Grey Interior Smooth, spacious, and ready for Nigerian roads.",
+      description:
+        "2018 Toyota Highlander Spacious 3-row SUV with V6 power, available AWD, Toyota Safety Sense, touchscreen, and seating for 7–8. Comfortable, reliable, and perfect for family trips.",
+      image: "highlander2018/highlander2018_1.jpg",
+      tumb1: "highlander2018/highlander2018_2.jpg",
+      tumb2: "highlander2018/highlander2018_3.jpg",
+      tumb3: "highlander2018/highlander2018_4.jpg"
     },
     {
-      id: 3,
-      name: "Highlander-XSE-2412",
-      feature: "Sport-tuned suspension, black grille, 20-inch wheels",
-      description: "The sporty version of the Highlander offers bold style with high-end driving dynamics.",
-      image: "Highlander-XSE-2412.webp",
+      id: 28,
+      name: "2019 Toyota Highlander",
+      feature: "2019 Toyota Highlander Black exterior with Tan interior – the perfect combo of style & class",
+      description:
+        "2019 Toyota Highlander Reliable 3-row SUV with V6 engine, available AWD, Toyota Safety Sense, touchscreen, and seating for up to 8. Comfortable, safe, and ideal for families.",
+      image: "highlander2019/highlander2019_1.jpg",
+      tumb1: "highlander2019/highlander2019_2.jpg",
+      tumb2: "highlander2019/highlander2019_3.jpg",
+      tumb3: "highlander2019/highlander2019_4.jpg"
+    },
+    {
+      id: 29,
+      name: "🚨 New Arrival Alert- 2024 Toyota Grand Highlander Limited AWD",
+      feature: "New Arrival Alert- 2024 Toyota Grand Highlander Limited AWD! Sleek Black Exterior Premium Gray Interior",
+      description:
+        "2024 Toyota Grand Highlander Limited AWD Premium 3-row SUV with turbocharged power, AWD, leather interior, panoramic roof, JBL audio, heated/ventilated seats, and Toyota Safety Sense. Spacious, tech-packed, and road-trip ready.",
+      image: "highlander2024/highlander2024_1.jpg",
+      tumb1: "highlander2024/highlander2024_2.jpg",
+      tumb2: "highlander2024/highlander2024_3.jpg",
+      tumb3: "highlander2024/highlander2024_4.jpg"
+    },
+
+    {
+      id: 31,
+      name: "2012 Toyota Venza",
+      feature: "New Arrival Alert- 2024 Toyota Grand Highlander Limited AWD! Sleek Black Exterior Premium Gray Interior",
+      description:
+        "2012 Toyota Venza Versatile midsize crossover with 4-cylinder or V6 engine options, available AWD, spacious interior, and smooth ride. Reliable and practical for daily driving and family use.",
+      image: "venza/venza_1.jpg",
+      tumb1: "venza/venza_2.jpg",
+      tumb2: "venza/venza_3.jpg",
+      tumb3: "venza/venza_4.jpg"
+    },
+
+    {
+      id: 26, 
+      name: "2025 Toyota Sienna",
+      feature: " 2025 Toyota Sienna Black Exterior, Grey Interior Smooth, spacious, and ready for Nigerian roads. ",
+      description:
+        "2025 Toyota Sienna White exterior with black interior. A stylish and spacious minivan offering comfort, advanced tech, and great fuel efficiency—perfect for families and long trips.",
+      image: "seina2025/seina2025_1.jpg",
+      tumb1: "seina2025/seina2025_2.jpg",
+      tumb2: "seina2025/seina2025_3.jpg",
+      tumb3: "seina2025/seina2025_4.jpg"
+    },
+
+      {
+      id: 33, 
+      name: "2025 Toyota Sienna",
+      feature: " 2025 Toyota Sienna Black Exterior, Grey Interior Smooth, spacious, and ready for Nigerian roads. ",
+      description:
+        "2025 Toyota Sienna White exterior with black interior. A stylish and spacious minivan offering comfort, advanced tech, and great fuel efficiency—perfect for families and long trips.",
+      image: "seina/seina1.jpg",
+      tumb1: "seina/seina2.jpg",
+      tumb2: "seina/seina3.jpg",
+      tumb3: "seina/seina4.jpg"
+    },
+
+
+    {
+      id: 32, 
+      name: "2021 Toyota Sienna",
+      feature: " 2021 Toyota Sienna – Grey Exterior, Grey Interior Smooth, spacious, and ready for Nigerian roads. ",
+      description:
+        "2021 Toyota Sienna The 2021 Toyota Sienna is a stylish, fuel-efficient hybrid minivan offering up to 36 MPG combined. With seating for 7 or 8, available all-wheel drive, and advanced safety features like Toyota Safety Sense 2.0, it’s perfect for families on the go. Modern tech, a spacious interior, and bold design make it a smart and versatile choice.",      
+      image: "seina2021/seina2021_1.jpg",
+      tumb1: "seina2021/seina2021_2.jpg",
+      tumb2: "seina2021/seina2021_3.jpg",
+      tumb3: "seina2021/seina2021_4.jpg"
+    },
+    
+    {
+      id: 6, 
+      name: "2021 Toyota Sienna",
+      feature: " 2021 Toyota Sienna – Grey Exterior, Grey Interior Smooth, spacious, and ready for Nigerian roads. ",
+      description:
+        "2021 Toyota Sienna The 2021 Toyota Sienna is a stylish, fuel-efficient hybrid minivan offering up to 36 MPG combined. With seating for 7 or 8, available all-wheel drive, and advanced safety features like Toyota Safety Sense 2.0, it’s perfect for families on the go. Modern tech, a spacious interior, and bold design make it a smart and versatile choice.",      
+      image: "seina2021/seina2021_1.jpg",
+      tumb1: "seina2021/seina2021_2.jpg",
+      tumb2: "seina2021/seina2021_3.jpg",
+      tumb3: "seina2021/seina2021_4.jpg"
+    },
+    
+    {
+      id: 25,
+      name: "2021 Toyota RAV4-LE Spot utility",
+      feature: " 2021 Toyota RAV4-LE Spot utility 4D Exterior, Grey Interior Silver",
+      description:
+        "2021 Toyota RAV4 LE Sport Utility 4DExterior: Grey | Interior: SilverReliable and fuel-efficient SUV with a sleek grey exterior and clean silver interior. Offers spacious seating, modern safety features, and a smooth ride—perfect for daily driving or weekend getaways.",
+      image: "rav4/rav46.jpg",
+      tumb1: "rav4/rav43.jpg",
+      tumb2: "rav4/rav47.jpg",
+      tumb3: "rav4/rav41.jpg"
     },
   ],
-  "Land Cruiser": [
+
+  Mercedes: [
     {
-      id: 5,
-      name: "Toyota Land Cruiser Special Edition ZX 'First Edition'",
-      feature: "Multi-terrain monitor, Hydraulic Suspension, Full-time 4WD",
-      description: "Limited edition luxury SUV with world-class off-road capabilities and premium interior finish.",
-      image: "landcruiser.jpeg",
-    },
-    {
-      id: 6,
-      name: "Toyota Land Cruiser 300",
-      feature: "3.5L twin-turbo V6, 10-speed automatic, Crawl Control",
-      description: "The Land Cruiser 300 delivers rugged strength and modern tech for extreme adventure and everyday comfort.",
-      image: "landcruiser300.jpeg",
+      id: 23,
+      name: "2019 Mercedes Benz G63",
+      feature: " Sport Utility 4D White exterior Red luxury interior",
+      description:
+        "The 2019 Mercedes-Benz G63 AMG is a luxury performance SUV that combines rugged off-road heritage with modern luxury. It has a 4.0L twin-turbo V8 engine making 577 hp, paired with a 9-speed automatic and all-wheel drive. It goes 0–60 mph in about 4.5 seconds and has a top speed of up to 149 mph.",
+      image: "benz/benz4.jpg",
+      tumb1: "benz/benz1.jpg",
+      tumb2: "benz/benz6.jpg",
+      tumb3: "benz/benz7.jpg"
     },
   ],
-  Corolla: [
+  
+  Jeep: [
     {
-      id: 7,
-      name: "Toyota Corolla 1.8L Elite Hybrid CVT FWD",
-      feature: "Hybrid engine, 7-inch display, Keyless Entry",
-      description: "An eco-friendly Corolla model with reliable hybrid performance and cutting-edge features.",
-      image: "toyota-corolla.jpeg",
-    },
-    {
-      id: 8,
-      name: "2018 Toyota Corolla",
-      feature: "1.8L engine, 6.1-inch touchscreen, Rearview camera",
-      description: "A classic, fuel-efficient sedan with a reputation for durability and value.",
-      image: "corolla-2018.jpeg",
-    },
-    {
-      id: 9,
-      name: "2022 Toyota Corolla - Interior and Exterior",
-      feature: "Sport seats, LED headlights, Smart Key System",
-      description: "Modernized with sleek styling and improved cabin comfort, ideal for city driving.",
-      image: "2022-corolla.jpg",
+      id: 24,
+      name: "2021 Jeep Grand Cherokee",
+      feature: " Limited Sport Utility 4D - black exterior  gold interior",
+      description:
+        "The 2021 Jeep Grand Cherokee Limited is a midsize SUV that blends comfort, capability, and style. It comes with a 3.6L V6 engine (295 hp) and an 8-speed automatic, with available 4x4 for off-road use. Inside, it offers leather-trimmed seats, an 8.4-inch touchscreen with Apple CarPlay/Android Auto, premium audio, and advanced safety features like blind-spot monitoring and adaptive cruise control.",
+      image: "jeep/jeep3.jpg",
+      tumb1: "jeep/jeep2.jpg",
+      tumb2: "jeep/jeep1.jpg",
+      tumb3: "jeep/jeep4.jpg"
     },
   ],
-  Camry: [
-    {
-      id: 10,
-      name: "2020 Toyota Camry Review, Pricing, and Specs",
-      feature: "2.5L 4-cylinder, Adaptive Cruise Control, Android Auto",
-      description: "The 2020 Camry blends sportiness and comfort, offering an engaging drive with excellent fuel efficiency.",
-      image: "2020-toyta-camry.avif",
-    },
-    {
-      id: 11,
-      name: "2025 Toyota Camry pricing & specs | Metro Toyota",
-      feature: "All-new hybrid system, 12.3-inch display, Advanced Parking Assist",
-      description: "The future-ready Camry with advanced safety tech and a refined cabin experience.",
-      image: "2025-toyota-camry.jpeg",
-    },
-    {
-      id: 19,
-      name: "Toyota Camry LE",
-      feature: "2.5L Dynamic Force engine, LED DRLs, 8-way power driver seat",
-      description: "The LE model offers a great mix of comfort, performance, and efficiency at an affordable price point.",
-      image: "camry-le.jpg",
-    },
-  ],
-  RAV4: [
-    {
-      id: 12,
-      name: "2025 Toyota RAV4 Hybrid",
-      feature: "AWD, 219 hp hybrid engine, Panoramic sunroof",
-      description: "An efficient and versatile SUV designed for performance and comfort on all terrains.",
-      image: "2025_toyota_rav4.avif",
-    },
-    {
-      id: 13,
-      name: "2023 Toyota RAV4 Interior Design",
-      feature: "Premium interior trim, Dual-zone AC, Digital rearview mirror",
-      description: "Sophisticated interior features with the flexibility and reliability of the RAV4 lineup.",
-      image: "2023-Toyota-RAV4.jpg",
-    },
-  ],
-  Ford: [
-    {
-      id: 20,
-      name: "Ford SE",
-      feature: "Turbocharged EcoBoost engine, SYNC 3 infotainment, Rearview camera",
-      description: "A sleek and compact sedan that offers responsive handling and practical comfort for daily use.",
-      image: "ford1.jpg",
-    },
-  ],
-  Siena: [
-    {
-      id: 21,
-      name: "Siena 2016",
-      feature: "V6 engine, 8-passenger seating, Dual sliding doors",
-      description: "Spacious and family-friendly, the 2016 Sienna is ideal for road trips and daily school runs.",
-      image: "siena1.jpg",
-    },
-  ],
-  Venza: [
-    {
-      id: 22,
-      name: "Venza",
-      feature: "Hybrid powertrain, All-wheel drive, 12.3-inch touchscreen",
-      description: "A stylish crossover SUV that blends Toyota’s latest hybrid tech with upscale comfort and design.",
-      image: "venza4.jpg",
-    },
-  ],
-  "4Runner": [
-    {
-      id: 14,
-      name: "2025 Toyota 4Runner",
-      feature: "4.0L V6 engine, Off-road packages, Third-row seating",
-      description: "A rugged SUV built for exploration with bold design and impressive utility.",
-      image: "23.jpeg",
-    },
-  ],
-  Tundra: [
-    {
-      id: 15,
-      name: "Toyota Tundra",
-      feature: "i-FORCE MAX hybrid engine, 12,000 lbs towing, Panoramic view monitor",
-      description: "A powerful full-size pickup truck designed for heavy lifting and smooth driving.",
-      image: "tundra-2025.jpeg",
-    },
-  ]
 };
 
 export default product;
