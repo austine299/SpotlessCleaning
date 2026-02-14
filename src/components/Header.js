@@ -16,11 +16,11 @@ function Header() {
   // List of banner images
   const bannerImages = [
     `${process.env.PUBLIC_URL}/images/img3.JPG`,
-    `${process.env.PUBLIC_URL}/images/img8.WEBP`,
-    `${process.env.PUBLIC_URL}/images/img9.WEBP`,
+    `${process.env.PUBLIC_URL}/images/img8.webp`,
+    `${process.env.PUBLIC_URL}/images/img9.webp`,
     `${process.env.PUBLIC_URL}/images/img10.jpeg`,
-    `${process.env.PUBLIC_URL}/images/img5.JPEG`,
-    `${process.env.PUBLIC_URL}/images/img7.WEBP`,
+    `${process.env.PUBLIC_URL}/images/img5.jpeg`,
+    `${process.env.PUBLIC_URL}/images/img7.webp`,
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 

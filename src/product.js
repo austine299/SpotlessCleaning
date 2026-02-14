@@ -25,7 +25,7 @@ const product = {
       name: "Deep Cleaning",
       time: "1 hr 30 min",
       description: "Contact for a free quote",
-      image: "img14.WEBP"
+      image: "img14.webp"
     }
   ],
 
