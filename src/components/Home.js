@@ -1,14 +1,14 @@
-
 import Header from "./Header";
 import Services from "./Services";
 import About from "./About";
 import Contact from "./Contact";
+import Portfolio from "./Portfolio";
+import Testmoial from "./Testmonial";
+
 import { motion } from "framer-motion";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import { CartContext } from "./CartContext";
 import { useLocation, useNavigate } from "react-router-dom";
-import Portfolio from "./Portfolio";
-import Testmoial from "./Testmonial" 
 
 function Home() {
   const {
@@ -24,41 +24,76 @@ function Home() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const map = {
+  /* ================= SECTION MAP ================= */
+  const sectionMap = useMemo(
+    () => ({
       Home: homeRef,
       Services: servicesRef,
       About: aboutRef,
       Contact: contactRef,
       Portfolio: portfolioRef,
       Testmoial: testmonialRef,
-    };
+    }),
+    [
+      homeRef,
+      servicesRef,
+      aboutRef,
+      contactRef,
+      portfolioRef,
+      testmonialRef,
+    ]
+  );
 
+  /* ================= SCROLL HANDLER ================= */
+  useEffect(() => {
     const target = location.state?.scrollTo;
-    const targetRef = map[target];
+    if (!target) return;
+
+    const targetRef = sectionMap[target];
 
     if (targetRef?.current) {
-      setTimeout(() => {
+      // small delay ensures page fully renders
+      const timer = setTimeout(() => {
         scrollToSection(targetRef);
-        navigate(".", { replace: true }); // clear scroll state
-      }, 200);
-    }
-  }, [location]);
 
+        // clear router state so refresh doesn't scroll again
+        navigate(".", { replace: true });
+      }, 200);
+
+      return () => clearTimeout(timer);
+    }
+  }, [location, sectionMap, scrollToSection, navigate]);
+
+  /* ================= UI ================= */
   return (
     <motion.div
-      ref={homeRef} // You can assign homeRef to the container
+      ref={homeRef}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <Header />
-      <div ref={servicesRef}><Services /></div>
-      <div ref={aboutRef}><About /></div>
-      <div ref={contactRef}><Contact /></div>
-      <div ref={portfolioRef}><Portfolio /></div>
-      <div ref={testmonialRef}><Testmoial /></div>
+
+      <div ref={servicesRef}>
+        <Services />
+      </div>
+
+      <div ref={aboutRef}>
+        <About />
+      </div>
+
+      <div ref={contactRef}>
+        <Contact />
+      </div>
+
+      <div ref={portfolioRef}>
+        <Portfolio />
+      </div>
+
+      <div ref={testmonialRef}>
+        <Testmoial />
+      </div>
     </motion.div>
   );
 }

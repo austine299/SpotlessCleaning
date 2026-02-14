@@ -5,7 +5,6 @@ import { CartContext } from "./CartContext";
 function Navbar() {
   
   const {
-    cartItems,
     aboutRef,
     servicesRef,
     contactRef,

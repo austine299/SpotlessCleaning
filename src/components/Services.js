@@ -1,27 +1,18 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { FaBroom, FaSprayCan } from "react-icons/fa";
 import products from "../product";
-import autoParts from "../autoparts"; // Import auto parts separately
 import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import { motion } from "framer-motion";
 
-function Product() {
+function Services() {
   const { setShowCart, serviceRef, setShowNavbar } =
     useContext(CartContext);
 
-  const [activeCategory, setActiveCategory] = useState(null); // Actual products to display
-
-  // Display products based on activeCategory
-  const displayedProducts = activeCategory
-    ? activeCategory === "Auto Parts"
-      ? autoParts
-      : products[activeCategory] || []
-    : Object.values(products).flat().concat(autoParts);
 
   return (
     <section
-      ref={serviceRef}
+      ref={serviceRef} 
       className="flex sm:flex-row flex-col-reverse bg-gray-50 py-12 px-2 md:px-10 gap-3"
       onClick={() => {
         setShowCart(false);;
@@ -39,12 +30,7 @@ function Product() {
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {displayedProducts.length === 0 ? (
-            <div className="col-span-full text-center text-2xl font-bold text-gray-500 py-20">
-              🚧 Coming Soon 🚧
-            </div>
-          ) : (
-            displayedProducts.map((item) => (
+          {Object.values(products).flat().map((item) => (
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, y: 50 }}
@@ -84,11 +70,11 @@ function Product() {
                 </div>
               </motion.div>
             ))
-          )}
+          }
         </div>
       </div>
     </section>
   );
 }
 
-export default Product;
+export default Services;
