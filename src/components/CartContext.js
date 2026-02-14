@@ -13,8 +13,10 @@ export function CartProvider({ children }) {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const contactRef = useRef(null);
-  const productRef = useRef(null);
+  const servicesRef = useRef(null);
   const footerRef = useRef(null);
+  const portfolioRef = useRef(null);
+  const testmonialRef = useRef(null);
 
   const scrollToSection = (ref) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
@@ -85,10 +87,12 @@ export function CartProvider({ children }) {
         decreaseQty,
         increaseQty,
         aboutRef,
-        productRef,
+        servicesRef,
         contactRef,
         homeRef,
         footerRef,
+        portfolioRef,
+        testmonialRef,
         scrollToSection,
         showNavbar,
         setShowNavbar,

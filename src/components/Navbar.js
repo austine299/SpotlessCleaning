@@ -10,9 +10,11 @@ function Navbar() {
     showCart,
     setShowCart,
     aboutRef,
-    productRef,
+    servicesRef,
     contactRef,
     homeRef,
+    portfolioRef,
+    testmonialRef,
     scrollToSection,
     showNavbar, 
     setShowNavbar,
@@ -27,9 +29,12 @@ function Navbar() {
 
   const navItems = [
     { label: "Home", ref: homeRef },
-    { label: "Product", ref: productRef },
+    { label: "Service List", ref: servicesRef },
     { label: "About Us", ref: aboutRef },
-    { label: "Contact Us", ref: contactRef },
+    { label: "Tesmonials", ref: testmonialRef },
+    { label: "Book Online", ref: servicesRef },
+    { label: "Contact", ref: contactRef },
+    { label: "Portfolio", ref: portfolioRef },
   ];
 
   return (
@@ -37,13 +42,10 @@ function Navbar() {
       <div className="flex justify-between items-center h-20 px-6 sm:px-12">
         {/* Logo */}
         <button
-          className="w-20 text-blue-600 tracking-wide"
+          className="w-30 text-blue-600 tracking-wide text-xl"
           onClick={() => scrollToSection(homeRef)}
         >
-          <img
-            src={`${process.env.PUBLIC_URL}/images/logo.jpg`}
-            className="rounded-full"
-          />
+           <img src={`${process.env.PUBLIC_URL}/logo.png`} className="rounded-full w-16"/>
         </button>
 
         {/* Desktop Navigation */}
@@ -59,17 +61,7 @@ function Navbar() {
           ))}
 
           {/* Cart Icon */}
-          <button
-            onClick={handleShowCart}
-            className="relative flex items-center text-xl hover:text-blue-600"
-          >
-            <FaCartShopping />
-            {totalQuantity > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full animate-pulse">
-                {totalQuantity}
-              </span>
-            )}
-          </button>
+        
         </nav>
 
         {/* Mobile Menu Button */}
@@ -94,22 +86,6 @@ function Navbar() {
                 {item.label}
               </button>
             ))}
-
-            <button
-              onClick={() => {
-                handleShowCart();
-                handleNav();
-              }}
-              className="flex items-center gap-2 text-lg font-semibold hover:bg-blue-600 hover:text-white px-4 py-2 rounded-md transition-all"
-            >
-              <FaCartShopping />
-              {totalQuantity > 0 && (
-                <span className="bg-red-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
-                  {totalQuantity}
-                </span>
-              )}
-              <span>Cart</span>
-            </button>
           </div>
         </div>
       )}

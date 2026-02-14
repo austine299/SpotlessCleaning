@@ -16,12 +16,12 @@ function Header() {
 
   // List of banner images
   const bannerImages = [
-    `${process.env.PUBLIC_URL}/images/banner1.jpg`,
-    `${process.env.PUBLIC_URL}/images/banner3.jpeg`,
-    `${process.env.PUBLIC_URL}/images/2025_toyota_rav4.avif`,
-    `${process.env.PUBLIC_URL}/images/banner4.jpeg`,
-    `${process.env.PUBLIC_URL}/images/banner5.jpeg`,
-    `${process.env.PUBLIC_URL}/images/landcruiser300.jpeg`,
+    `${process.env.PUBLIC_URL}/images/img3.JPG`,
+    `${process.env.PUBLIC_URL}/images/img8.WEBP`,
+    `${process.env.PUBLIC_URL}/images/img9.WEBP`,
+    `${process.env.PUBLIC_URL}/images/img10.jpeg`,
+    `${process.env.PUBLIC_URL}/images/img5.JPEG`,
+    `${process.env.PUBLIC_URL}/images/img7.WEBP`,
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -41,25 +41,26 @@ function Header() {
       style={{ backgroundImage: `url(${bannerImages[currentIndex]})` }}
     >
       <div
-        className="flex flex-col justify-center items-center gap-3 sm:w-3/5 w-full"
+        className="flex flex-col justify-center sm:items-center md:items-start sm:w-3/5 w-full"
         onClick={() => {
           setShowCart(false);
           setShowNavbar(false);
         }}
       >
-        <h1 className="sm:text-4xl text-3xl text-white font-extrabold drop-shadow-lg mt-7 sm:mt-0">
-          OJIAKAANU AUTO’S
+        <h1 className="sm:text-4xl text-3xl md:w-[500px] text-center md:text-start text-white font-extrabold drop-shadow-lg mt-7 sm:mt-0">
+          WELCOME TO <span className="text-blue-500">SPOTLESS CLEANING SERVICES</span>
         </h1>
+        <span className="text-blue-400 text-center ">Professional Cleaning Services Across the UK</span>
         <small className="text-xl text-center text-white font-bold">
           {" "}
-          A Subsidiary of OJIAKAANU NIG LTD (RC 1047355)
+          Let Us Handle the Mess
         </small>
-        <span className="text-lg text-white drop-shadow-md">
-          we deliver nation wide
+        <span className="text-lg text-center text-white drop-shadow-md">
+          We provide versatile cleaning solutions tailored to your needs.
         </span>
         <button
           onClick={() => scrollToSection(contactRef)}
-          className="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-md text-white font-semibold w-max"
+          className="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-md mt-4 text-white font-semibold w-max"
         >
           Contact Us
         </button>

@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import Header from "./Header";
-import Product from "./Product";
+import Services from "./Services";
 import About from "./About";
 import Contact from "./Contact";
 import Footer from "./Footer";
@@ -9,13 +9,17 @@ import { useContext, useEffect } from "react";
 import { CartContext } from "./CartContext";
 import CustomerService from "./CustomerService";
 import { useLocation, useNavigate } from "react-router-dom";
+import Portfolio from "./Portfolio";
+import Testmoial from "./Testmonial" 
 
 function Home() {
   const {
     homeRef,
-    productRef,
+    servicesRef,
     aboutRef,
     contactRef,
+    portfolioRef,
+    testmonialRef,
     scrollToSection,
   } = useContext(CartContext);
 
@@ -25,9 +29,11 @@ function Home() {
   useEffect(() => {
     const map = {
       Home: homeRef,
-      Product: productRef,
-      "About Us": aboutRef,
-      "Contact Us": contactRef,
+      Services: servicesRef,
+      About: aboutRef,
+      Contact: contactRef,
+      Portfolio: portfolioRef,
+      Testmoial: testmonialRef,
     };
 
     const target = location.state?.scrollTo;
@@ -50,9 +56,11 @@ function Home() {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <Header />
-      <div ref={productRef}><Product /></div>
+      <div ref={servicesRef}><Services /></div>
       <div ref={aboutRef}><About /></div>
       <div ref={contactRef}><Contact /></div>
+      <div ref={portfolioRef}><Portfolio /></div>
+      <div ref={testmonialRef}><Testmoial /></div>
     </motion.div>
   );
 }

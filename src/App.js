@@ -6,6 +6,9 @@ import ConfirmOrder from "./components/ConfirmOrder";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import CustomerService from "./components/CustomerService";
+import Availability from "./components/Availability";
+
+
 
 function App() {
   return (
@@ -13,7 +16,7 @@ function App() {
       <Navbar /> 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/Availability" element={<Availability />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/confirmOrder" element={<ConfirmOrder />} />
       </Routes>

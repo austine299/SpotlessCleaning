@@ -1,40 +1,39 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import {
   FaFacebookF,
   FaInstagram,
   FaTwitter,
   FaPhone,
+  FaTiktok,
+  FaWhatsapp,
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 
 const Footer = () => {
-  const {
-      aboutRef,
-      productRef,
-      contactRef,
-      homeRef,
-      scrollToSection,
-    } = useContext(CartContext);
-    
-    const contactNum = process.env.REACT_APP_CONTACT;
+  const { aboutRef, servicesRef,testmonialRef, portfolioRef, contactRef, homeRef, scrollToSection } =
+    useContext(CartContext);
+
+  const contactNum = process.env.REACT_APP_CONTACT;
   return (
-    <footer
-      className="bg-blue-900 text-white py-10 px-6 sm:px-20"
-    >
+    <footer className="bg-blue-900 text-white py-10 px-6 sm:px-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* About */}
         <div>
           <button
-          className="w-20 text-blue-600 tracking-wide "
-          onClick={() => scrollToSection(homeRef)}
-        >
-          <img src={`${process.env.PUBLIC_URL}/images/logo.jpg`} className="rounded-full"/>
-        </button>
+            className="w-20 text-blue-600 tracking-wide "
+            onClick={() => scrollToSection(homeRef)}
+          >
+            <img
+              src={`${process.env.PUBLIC_URL}/logo.png`}
+              className="rounded-full"
+            />
+          </button>
           <p className="text-gray-300">
-            Your trusted plug for quality imported vehicles and genuine motor
-            parts. Ride in comfort, class, and confidence with Ojiakaanu Auto's.
+            Your trusted partner for reliable residential and commercial
+            cleaning services. We deliver spotless spaces with care,
+            professionalism, and attention to detail.
           </p>
         </div>
 
@@ -43,23 +42,59 @@ const Footer = () => {
           <h2 className="text-xl font-bold mb-4">Quick Links</h2>
           <ul className="space-y-2">
             <li>
-              <button  onClick={() => scrollToSection(homeRef)} className="hover:text-blue-300 transition">
+              <button
+                onClick={() => scrollToSection(homeRef)}
+                className="hover:text-blue-300 transition"
+              >
                 Home
               </button>
             </li>
             <li>
-              <button  onClick={() => scrollToSection(aboutRef)} className="hover:text-blue-300 transition">
+              <button
+                onClick={() => scrollToSection(aboutRef)}
+                className="hover:text-blue-300 transition"
+              >
                 About Us
               </button>
             </li>
             <li>
-              <button  onClick={() => scrollToSection(productRef)} className="hover:text-blue-300 transition">
-                Products
+              <button
+                onClick={() => scrollToSection(servicesRef)}
+                className="hover:text-blue-300 transition"
+              >
+                Service List
               </button>
             </li>
             <li>
-              <button  onClick={() => scrollToSection(contactRef)} className="hover:text-blue-300 transition">
+              <button
+                onClick={() => scrollToSection(contactRef)}
+                className="hover:text-blue-300 transition"
+              >
                 Contact
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => scrollToSection(testmonialRef)}
+                className="hover:text-blue-300 transition"
+              >
+                Testmoial
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => scrollToSection(testmonialRef)}
+                className="hover:text-blue-300 transition"
+              >
+                Book Online
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => scrollToSection(portfolioRef)}
+                className="hover:text-blue-300 transition"
+              >
+                Portfolio
               </button>
             </li>
           </ul>
@@ -95,14 +130,20 @@ const Footer = () => {
               href="#"
               className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full"
             >
-              <FaTwitter />
+              <FaTiktok />
+            </a>
+            <a
+              href="#"
+              className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full"
+            >
+              <FaWhatsapp />
             </a>
           </div>
         </div>
       </div>
 
       <div className="border-t border-blue-800 mt-10 pt-6 text-center text-sm text-gray-400">
-        &copy; {new Date().getFullYear()} Contact Ojiakaanu Nig. Ltd. All rights
+        &copy; {new Date().getFullYear()} Contact Spotless Cleaning Services All rights
         reserved.
       </div>
     </footer>
