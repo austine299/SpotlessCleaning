@@ -5,7 +5,6 @@ import autoParts from "../autoparts"; // Import auto parts separately
 import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import { motion } from "framer-motion";
-import MessageForm from "./MessageForm";
 
 function Product() {
   const { addToCart, setShowCart, productRef, setShowNavbar } =
