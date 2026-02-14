@@ -1,13 +1,11 @@
-import Navbar from "./Navbar";
+
 import Header from "./Header";
 import Services from "./Services";
 import About from "./About";
 import Contact from "./Contact";
-import Footer from "./Footer";
 import { motion } from "framer-motion";
 import { useContext, useEffect } from "react";
 import { CartContext } from "./CartContext";
-import CustomerService from "./CustomerService";
 import { useLocation, useNavigate } from "react-router-dom";
 import Portfolio from "./Portfolio";
 import Testmoial from "./Testmonial" 

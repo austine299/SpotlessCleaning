@@ -2,13 +2,11 @@ import React, { useContext } from "react";
 import {
   FaFacebookF,
   FaInstagram,
-  FaTwitter,
   FaPhone,
   FaTiktok,
   FaWhatsapp,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 
 const Footer = () => {
@@ -27,6 +25,7 @@ const Footer = () => {
           >
             <img
               src={`${process.env.PUBLIC_URL}/logo.png`}
+              alt="logo"
               className="rounded-full"
             />
           </button>
@@ -127,13 +126,13 @@ const Footer = () => {
               <FaInstagram />
             </a>
             <a
-              href="#"
+              href="https://www.facebook.com/profile.php?id=61583952003567"
               className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full"
             >
               <FaTiktok />
             </a>
             <a
-              href="#"
+              href="https://www.facebook.com/profile.php?id=61583952003567"
               className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full"
             >
               <FaWhatsapp />

@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import { FaCartShopping } from "react-icons/fa6";
+import {useContext } from "react";
 import { Menu, X } from "lucide-react";
 import { CartContext } from "./CartContext";
 
@@ -7,8 +6,6 @@ function Navbar() {
   
   const {
     cartItems,
-    showCart,
-    setShowCart,
     aboutRef,
     servicesRef,
     contactRef,
@@ -23,9 +20,6 @@ function Navbar() {
 
  
   const handleNav = () => setShowNavbar(!showNavbar);
-  const handleShowCart = () => setShowCart(!showCart);
-
-  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const navItems = [
     { label: "Home", ref: homeRef },
@@ -45,7 +39,7 @@ function Navbar() {
           className="w-30 text-blue-600 tracking-wide text-xl"
           onClick={() => scrollToSection(homeRef)}
         >
-           <img src={`${process.env.PUBLIC_URL}/logo.png`} className="rounded-full w-16"/>
+           <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="logo" className="rounded-full w-16"/>
         </button>
 
         {/* Desktop Navigation */}

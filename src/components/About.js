@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { FaMapMarkerAlt, FaPhoneAlt, FaCarSide, FaCogs } from "react-icons/fa";
 import { CartContext } from "./CartContext";
 
 const About = () => {
@@ -33,7 +32,7 @@ const About = () => {
           </p>
         </div>
         <div>
-          <img src={`${process.env.PUBLIC_URL}/images/img10.jpeg`}  className="rounded-lg" />    
+          <img src={`${process.env.PUBLIC_URL}/images/img10.jpeg` } alt="about" className="rounded-lg" />    
         </div>
       </div>
 

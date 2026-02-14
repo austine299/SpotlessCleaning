@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { FaBroom, FaSprayCan, FaWhatsapp } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { FaBroom, FaSprayCan } from "react-icons/fa";
 import products from "../product";
 import autoParts from "../autoparts"; // Import auto parts separately
 import { Link } from "react-router-dom";
@@ -7,11 +7,9 @@ import { CartContext } from "./CartContext";
 import { motion } from "framer-motion";
 
 function Product() {
-  const { addToCart, setShowCart, productRef, setShowNavbar } =
+  const { setShowCart, serviceRef, setShowNavbar } =
     useContext(CartContext);
 
-  const [showCategory, setShowCategory] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState(null); // Label for dropdown
   const [activeCategory, setActiveCategory] = useState(null); // Actual products to display
 
   // Display products based on activeCategory
@@ -21,25 +19,12 @@ function Product() {
       : products[activeCategory] || []
     : Object.values(products).flat().concat(autoParts);
 
-  // Handle category selection
-  const handleCategorySelect = (category, updateLabel = true) => {
-    setActiveCategory(category); // Always update products
-    if (updateLabel) setSelectedCategory(category); // Update label only if needed
-    setShowCategory(false);
-    setShowCart(false);
-  };
-
-  const num = process.env.REACT_APP_MOBILE;
-
-  const customMsg = "Thank you for contacting OJIAKAANU NIG LTD";
-
   return (
     <section
-      ref={productRef}
+      ref={serviceRef}
       className="flex sm:flex-row flex-col-reverse bg-gray-50 py-12 px-2 md:px-10 gap-3"
       onClick={() => {
-        setShowCart(false);
-        setShowCategory(false);
+        setShowCart(false);;
         setShowNavbar(false);
       }}
     >

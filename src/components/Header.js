@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import Cart from "./Cart";
@@ -32,7 +31,7 @@ function Header() {
     }, 5000); // change every 5 seconds
 
     return () => clearInterval(interval); // cleanup
-  }, []);
+  }, [bannerImages.length]);
 
   return (
     <div

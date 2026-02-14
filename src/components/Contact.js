@@ -9,7 +9,6 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import { CartContext } from "./CartContext";
-import { Link } from "react-router-dom";
 
 const Contact = () => {
   const { contactRef } = useContext(CartContext);
@@ -64,16 +63,16 @@ const Contact = () => {
               Social Media
             </h2>
             <div className="flex flex-col items-start gap-4">
-              <a href="#" className="flex gap-3 hover:underline hover:text-blue-600">
+              <a href="https://www.facebook.com/profile.php?id=61583952003567" className="flex gap-3 hover:underline hover:text-blue-600">
                 <FaInstagram className="text-red-400 text-4xl" /><span className="text-lg">preciousegboba</span>
               </a>
-              <a href="#" className="flex gap-3 hover:underline hover:text-blue-600">
+              <a href="https://www.facebook.com/profile.php?id=61583952003567" className="flex gap-3 hover:underline hover:text-blue-600">
                 <FaFacebook className="text-blue-500 text-4xl" /><span className="text-lg">precious Egbobawaye</span>
               </a>
-              <a href="#" className="flex gap-3 hover:underline hover:text-blue-600">
+              <a href="https://www.facebook.com/profile.php?id=61583952003567" className="flex gap-3 hover:underline hover:text-blue-600">
                 <FaTiktok className="bg-black text-4xl text-white rounded-lg" /><span className="text-lg">precious4real</span>
               </a>
-              <a href="#" className="flex gap-3 hover:underline hover:text-blue-600">
+              <a href="https://www.facebook.com/profile.php?id=61583952003567" className="flex gap-3 hover:underline hover:text-blue-600">
                 <FaWhatsapp className="bg-green-600 text-4xl text-white rounded-lg" /><span className="text-lg">precious</span>
               </a>
             </div>
