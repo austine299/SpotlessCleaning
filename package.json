@@ -1,6 +1,5 @@
 {
-  "homepage": "https://max-autos.vercel.app",
-  "name": "max-autos",
+  "name": "spotlesscleaning",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
