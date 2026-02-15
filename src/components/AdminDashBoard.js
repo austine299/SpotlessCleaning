@@ -83,8 +83,9 @@ export default function AdminDashboard() {
   };
 
   useEffect(() => {
-    if (!isLoggedIn()) navigate("/login");
-  }, []);
+  if (!isLoggedIn()) navigate("/admin/login");
+}, [navigate]);
+
 
   const admin = getAdmin();
 
