@@ -1,6 +1,6 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaBroom, FaSprayCan } from "react-icons/fa";
-import products from "../product";
+import { getServices } from "../data/serviceStorage";
 import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import { motion } from "framer-motion";
@@ -9,68 +9,81 @@ function Services() {
   const { setShowCart, serviceRef, setShowNavbar } =
     useContext(CartContext);
 
+  const [services, setServices] = useState([]);
+
+  /* load services */
+  useEffect(() => {
+    setServices(getServices());
+  }, []);
 
   return (
     <section
-      ref={serviceRef} 
-      className="flex sm:flex-row flex-col-reverse bg-gray-50 py-12 px-2 md:px-10 gap-3"
+      ref={serviceRef}
+      className="bg-gray-50 py-12 px-2 md:px-10"
       onClick={() => {
-        setShowCart(false);;
+        setShowCart(false);
         setShowNavbar(false);
       }}
     >
-      {/* Product List */}
-      <div className="sm:w-full w-full flex flex-col items-center">
-        <div className="relative flex justify-between bg-blue-100 py-3 px-4 mb-10">
-          <h1 className="sm:text-3xl text-   font-extrabold text-gray-800 flex items-center gap-3">
-            <FaBroom className="text-blue-600" /> Our Services{" "}
+      <div className="w-full flex flex-col items-center">
+
+        {/* Header */}
+        <div className="relative flex justify-between bg-blue-100 py-3 px-4 mb-10 w-full max-w-7xl rounded-lg">
+          <h1 className="text-3xl font-extrabold text-gray-800 flex items-center gap-3">
+            <FaBroom className="text-blue-600" />
+            Our Services
             <FaSprayCan className="text-blue-600" />
           </h1>
         </div>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {Object.values(products).flat().map((item) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="bg-white rounded-xl gap-3 shadow hover:shadow-lg transition duration-300 p-4 flex flex-col justify-center h-full text-center"
-              >
-                <Link
-                  to="/availability"
-                  state={{ service: item }}
-                  className="flex flex-col gap-1 items-center justify-center px-4 flex-grow"
-                >
-                  <img
-                    src={`${process.env.PUBLIC_URL}/images/${item.image}`}
-                    alt={item.name}
-                    className="w-full h-[250px] object-cover rounded-lg mb-4"
-                  />
-                  <h2 className="font-bold text-2xl text-gray-900 w-full overflow-hidden whitespace-nowrap text-ellipsis">
-                    {item.name}
-                  </h2>
-                </Link>
-                <hr />
-                <span className="text-xl flex flex-col text-left">
-                  <span className="text-xl">{item.time}</span>
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl w-full">
 
-                  <span className="text-xl">{item.description}</span>
-                </span>
-                <div className="flex justify-between items-center w-full mt-4 gap-2">
-                  <Link
-                    to="/availability"
-                    state={{ service: item }}
-                    className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-2 py-2 rounded-lg text-sm transition text-center"
-                  >
-                    Book Now
-                  </Link>
-                </div>
-              </motion.div>
-            ))
-          }
+          {services.length === 0 && (
+            <p className="col-span-full text-center text-gray-500 text-xl py-16">
+              No services added yet
+            </p>
+          )}
+
+          {services.map((item) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-xl shadow hover:shadow-lg transition p-4 flex flex-col text-center"
+            >
+              <Link
+                to="/availability"
+                state={{ service: item }}
+                className="flex flex-col flex-grow"
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-[230px] object-cover rounded-lg mb-4"
+                />
+
+                <h2 className="font-bold text-xl mb-1">
+                  {item.name}
+                </h2>
+
+                <p className="text-sm text-gray-600">{item.time}</p>
+
+                <p className="text-sm text-gray-500 mt-2">
+                  {item.description}
+                </p>
+              </Link>
+
+              <Link
+                to="/availability"
+                state={{ service: item }}
+                className="mt-4 bg-blue-600 hover:bg-blue-500 text-white py-2 rounded-lg"
+              >
+                Book Now
+              </Link>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
