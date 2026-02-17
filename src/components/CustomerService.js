@@ -9,7 +9,7 @@ const WhatsAppChatWidget = () => {
   const options = { hour: "2-digit", minute: "2-digit", hour12: true };
   const formattedTime = date.toLocaleTimeString("en-US", options);
 
-  const phoneNumber = process.env.REACT_APP_MOBILE; // Your WhatsApp number
+  const phoneNumber = process.env.REACT_APP_CONTACT; // Your WhatsApp number
 
   return (
     <>
