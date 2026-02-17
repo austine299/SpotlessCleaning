@@ -37,7 +37,7 @@ const WhatsAppChatWidget = () => {
                 className="w-10 h-10 rounded-full"
               />
               <div>
-                <p className="font-bold text-sm">Ojiakaanu Auto’s</p>
+                <p className="font-bold text-sm">Spotless Cleaning</p>
                 <p className="text-xs text-green-100">
                   Typically replies within 10 minutes
                 </p>
@@ -61,9 +61,9 @@ const WhatsAppChatWidget = () => {
               />
               <div>
                 <p>
-                  <strong className="text-green-700">Ojiakaanu Auto’s</strong>
+                  <strong className="text-green-700">Spotless Cleaning</strong>
                 </p>
-                <p>Hi, welcome to Ojiakaanu Auto’s, how can we help you today? 😊</p>
+                <p>Hi, welcome to Spotless Cleaning Services, how can we help you today? 😊</p>
                 <p className="text-right text-xs text-gray-400">
                   {formattedTime}
                 </p>
