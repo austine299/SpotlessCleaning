@@ -20,7 +20,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto space-y-6 text-center">
           <h2 className="text-3xl font-bold text-gray-800">Who We Are</h2>
           <p className="text-gray-600 text-lg">
-            <strong>SPOTLESS CLEANING SERVICES </strong> specializes in reliable
+            <strong>LMRN SPOTLESS CLEANING SERVICES </strong> specializes in reliable
             residential and commercial cleaning. Our fully trained cleaners ensure
             a safe and healthy environment with effective cleaning products that
             deliver the highest standards. Experience customized services fit for
@@ -42,7 +42,7 @@ const About = () => {
           Where cleanliness meets excellence.
         </p>
         <h2 className="text-xl font-bold text-blue-700">
-          CHOOSE SPOTLESS CLEANING SERVICES.
+          CHOOSE LMRN SPOTLESS CLEANING SERVICES.
         </h2>
       </div>
     </section>

@@ -24,7 +24,7 @@ const Contact = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30" />
         <div className="z-10 text-center px-4">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white">
-            Contact Spotless Cleaning Services
+            Contact LMRN Spotless Cleaning Services
           </h1>
           <p className="text-lg text-gray-100 mt-2">
             ✨ Let’s Refresh Your Space — Contact Us Today
@@ -41,7 +41,7 @@ const Contact = () => {
             <div className="flex items-center gap-4">
               <FaMapMarkerAlt className="text-blue-700 text-2xl" />
               <span className="text-lg text-gray-700">
-                Ikota, Lagos, Island, Nigeria
+                Hull, UK
               </span>
             </div>
             <div className="flex items-center gap-4">

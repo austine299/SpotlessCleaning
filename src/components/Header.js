@@ -47,7 +47,7 @@ function Header() {
         }}
       >
         <h1 className="sm:text-4xl text-3xl md:w-[500px] text-center md:text-start text-white font-extrabold drop-shadow-lg mt-7 sm:mt-0">
-          WELCOME TO <span className="text-blue-500">SPOTLESS CLEANING SERVICES</span>
+          WELCOME TO <span className="text-blue-500">LMRN SPOTLESS CLEANING SERVICES</span>
         </h1>
         <span className="text-blue-400 text-center ">Professional Cleaning Services Across the UK</span>
         <small className="text-xl text-center text-white font-bold">

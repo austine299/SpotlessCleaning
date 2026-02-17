@@ -108,7 +108,7 @@ const Footer = () => {
           </div>
           <div className="flex items-center gap-3 mb-6 text-gray-300">
             <FaMapMarkerAlt />
-            <span>Ikota, Lagos Island, Nigeria</span>
+            <span>Hull, UK</span>
           </div>
 
           {/* Socials */}
@@ -142,7 +142,7 @@ const Footer = () => {
       </div>
 
       <div className="border-t border-blue-800 mt-10 pt-6 text-center text-sm text-gray-400">
-        &copy; {new Date().getFullYear()} Contact Spotless Cleaning Services All rights
+        &copy; {new Date().getFullYear()} Contact LMRN Spotless Cleaning Services All rights
         reserved.
       </div>
     </footer>

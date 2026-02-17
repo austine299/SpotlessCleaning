@@ -4,16 +4,16 @@ import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 function Reviews() {
   const [reviews, setReviews] = useState([
     {
-      name: "Chioma Okafor",
+      name: "Andrew Marvell",
       text: "Excellent service. My house looks spotless every time!",
       rating: 5,
-      image: "/images/user1.jpg",
+      image: `${process.env.PUBLIC_URL}/images/review1.jpg`,
     },
     {
-      name: "Emeka Johnson",
+      name: "Philip Larkin",
       text: "Very professional team. Arrived on time and cleaned perfectly.",
       rating: 5,
-      image: "/images/user2.jpg",
+      image: `${process.env.PUBLIC_URL}/images/review2.jpg`,
     },
   ]);
 
@@ -99,7 +99,7 @@ function Reviews() {
           {/* Stars */}
           <div className="flex justify-center mb-4">
             {[...Array(activeReview.rating)].map((_, i) => (
-              <Star key={i} size={18} className="fill-current" />
+              <Star key={i} size={18} className="fill-current  text-green-300" />
             ))}
           </div>
 
