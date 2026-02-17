@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { registerAdmin } from "../data/AdminStorage";
-
 export default function AdminRegister() {
   const navigate = useNavigate();
 
