@@ -1,5 +1,4 @@
-const API =
-  "https://script.google.com/macros/s/AKfycbxvvcRW1uSjAO6ADrN0avmrPx3x67kc3pcrfOZKlnJEqJXQ3foWDAHNw45oymFuN5GvIw/exec";
+const API = process.env.REACT_APP_GOOGLE_SCRIPT_URL
 
 /* ======================
    GET SERVICES
