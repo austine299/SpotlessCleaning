@@ -57,6 +57,12 @@ export default function AdminRegister() {
         >
           Register
         </button>
+        <p className="text-sm text-center">
+          Already have an account?{" "}
+          <Link to="/login" className="text-blue-600">
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );
