@@ -10,12 +10,12 @@ export default function AdminLogin() {
     password: "",
   });
 
-  const handleLogin = () => {
-    const success = loginAdmin(form.email, form.password);
+  const handleLogin = async () => {
+    const res = await loginAdmin(form.email, form.password);
 
-    if (!success) return alert("Invalid credentials");
+    if (!res.success) return alert("Invalid credentials");
 
-    setSession();
+    setSession(res);
     navigate("/admin/dashboard");
   };
 

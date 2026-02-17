@@ -6,14 +6,20 @@ import { CartContext } from "./CartContext";
 import { motion } from "framer-motion";
 
 function Services() {
-  const { setShowCart, serviceRef, setShowNavbar } =
-    useContext(CartContext);
+  const { setShowCart, serviceRef, setShowNavbar } = useContext(CartContext);
 
   const [services, setServices] = useState([]);
 
-  /* load services */
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    setServices(getServices());
+    const loadServices = async () => {
+      const data = await getServices();
+      setServices(data);
+      setLoading(false);
+    };
+
+    loadServices();
   }, []);
 
   return (
@@ -26,7 +32,6 @@ function Services() {
       }}
     >
       <div className="w-full flex flex-col items-center">
-
         {/* Header */}
         <div className="relative flex justify-between bg-blue-100 py-3 px-4 mb-10 w-full max-w-7xl rounded-lg">
           <h1 className="text-3xl font-extrabold text-gray-800 flex items-center gap-3">
@@ -38,8 +43,13 @@ function Services() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl w-full">
+          {loading && (
+            <p className="col-span-full text-center text-gray-500 text-xl py-16">
+              Loading services...
+            </p>
+          )}
 
-          {services.length === 0 && (
+          {!loading && services.length === 0 && (
             <p className="col-span-full text-center text-gray-500 text-xl py-16">
               No services added yet
             </p>
@@ -64,15 +74,11 @@ function Services() {
                   className="w-full h-[230px] object-cover rounded-lg mb-4"
                 />
 
-                <h2 className="font-bold text-xl mb-1">
-                  {item.name}
-                </h2>
+                <h2 className="font-bold text-xl mb-1">{item.name}</h2>
 
                 <p className="text-sm text-gray-600">{item.time}</p>
 
-                <p className="text-sm text-gray-500 mt-2">
-                  {item.description}
-                </p>
+                <p className="text-sm text-gray-500 mt-2">{item.description}</p>
               </Link>
 
               <Link

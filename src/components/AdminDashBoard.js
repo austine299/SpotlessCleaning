@@ -23,20 +23,32 @@ export default function AdminDashboard() {
   const [form, setForm] = useState(emptyForm);
   const [services, setServices] = useState([]);
   const [editing, setEditing] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false); // New state for submit status
 
-  /* load services */
+  /* Load services */
   useEffect(() => {
-    setServices(getServices());
+    const load = async () => {
+      const data = await getServices();
+      setServices(data);
+      setLoading(false);
+    };
+    load();
   }, []);
 
-  const refresh = () => setServices(getServices());
+  const refresh = async () => {
+    setLoading(true);
+    const data = await getServices();
+    setServices(data);
+    setLoading(false);
+  };
 
-  /* inputs */
+  /* Inputs */
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  /* image upload */
+  /* Image upload */
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -44,57 +56,87 @@ export default function AdminDashboard() {
     const reader = new FileReader();
     reader.onloadend = () =>
       setForm((prev) => ({ ...prev, image: reader.result }));
-
     reader.readAsDataURL(file);
   };
 
-  /* add or update */
-  const handleSubmit = (e) => {
+  /* Add or update */
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!form.name || !form.time || !form.description) {
+      return alert("Fill all fields");
+    }
     if (!form.image) return alert("Upload an image");
 
-    if (editing) {
-      updateService(form);
-      alert("Service updated!");
-    } else {
-      addService({ ...form, id: Date.now() });
-      alert("Service added!");
-    }
+    try {
+      setSubmitting(true); // disable button and show loading
 
-    setForm(emptyForm);
-    setEditing(false);
-    refresh();
+      // Call the right API
+      let result;
+      if (editing) {
+        await updateService(form);
+
+        // Instantly update UI without refresh
+        setServices((prev) => prev.map((s) => (s.id === form.id ? form : s)));
+      } else {
+        const result = await addService(form);
+
+        setServices((prev) => [...prev, { ...form, id: result.id }]);
+      }
+
+      // Check backend response
+      if (!result.success) {
+        alert(result.error || "Failed to save service");
+        return;
+      }
+
+      alert(editing ? "Service updated!" : "Service added!");
+      console.log("Updating with form:", form);
+
+      setForm(emptyForm);
+      setEditing(false);
+    } catch (err) {
+      console.error("Submit error:", err);
+      alert(err.message || "Something went wrong!");
+    } finally {
+      setSubmitting(false); // re-enable button
+    }
   };
 
-  /* edit */
+  /* Edit service */
   const handleEdit = (service) => {
     setForm(service);
     setEditing(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  /* delete */
-  const handleDelete = (id) => {
+  /* Delete service */
+  const handleDelete = async (id) => {
     if (!window.confirm("Delete this service?")) return;
 
-    deleteService(id);
-    refresh();
+    try {
+      setSubmitting(true);
+      await deleteService(id);
+      await refresh();
+    } catch (err) {
+      console.error(err);
+      alert("Failed to delete service");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   useEffect(() => {
-  if (!isLoggedIn()) navigate("/admin/login");
-}, [navigate]);
-
+    if (!isLoggedIn()) navigate("/admin/login");
+  }, [navigate]);
 
   const admin = getAdmin();
 
   return (
-
     <div className="min-h-screen bg-gray-50 p-10 space-y-10">
-      <div className="flex justify-between items-center mb-6 fixed top-0 left-0 w-full p-12 h-20 bg-white/80 backdrop-blur  z-50 shadow-md">
+      {/* Header */}
+      <div className="flex justify-between items-center mb-6 fixed top-0 left-0 w-full p-12 h-20 bg-white/80 backdrop-blur z-50 shadow-md">
         <h2 className="text-2xl font-bold">Welcome, {admin?.name}</h2>
-
         <button
           onClick={() => {
             logoutAdmin();
@@ -106,12 +148,11 @@ export default function AdminDashboard() {
         </button>
       </div>
 
-      {/* ================= FORM ================= */}
+      {/* Form */}
       <div className="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow space-y-4">
         <h2 className="text-2xl font-bold">
           {editing ? "Update Service" : "Add New Service"}
         </h2>
-
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             name="name"
@@ -120,9 +161,7 @@ export default function AdminDashboard() {
             onChange={handleChange}
             className="w-full border p-2 rounded"
           />
-
           <input type="file" accept="image/*" onChange={handleImageUpload} />
-
           {form.image && (
             <img
               src={form.image}
@@ -130,7 +169,6 @@ export default function AdminDashboard() {
               className="h-32 rounded-lg object-cover"
             />
           )}
-
           <input
             name="time"
             placeholder="Duration"
@@ -138,7 +176,6 @@ export default function AdminDashboard() {
             onChange={handleChange}
             className="w-full border p-2 rounded"
           />
-
           <textarea
             name="description"
             placeholder="Description"
@@ -146,11 +183,21 @@ export default function AdminDashboard() {
             onChange={handleChange}
             className="w-full border p-2 rounded"
           />
-
-          <button className="bg-green-600 text-white w-full py-2 rounded">
-            {editing ? "Update Service" : "Add Service"}
+          <button
+            type="submit"
+            disabled={submitting} // Disable button while submitting
+            className={`w-full py-2 rounded ${
+              submitting ? "bg-gray-400" : "bg-green-600"
+            } text-white`}
+          >
+            {submitting
+              ? editing
+                ? "Updating..."
+                : "Adding..."
+              : editing
+                ? "Update Service"
+                : "Add Service"}
           </button>
-
           {editing && (
             <button
               type="button"
@@ -163,7 +210,6 @@ export default function AdminDashboard() {
               Cancel Edit
             </button>
           )}
-
           <button
             type="button"
             onClick={() => navigate("/")}
@@ -174,44 +220,52 @@ export default function AdminDashboard() {
         </form>
       </div>
 
-      {/* ================= PREVIEW LIST ================= */}
+      {/* Service List */}
       <div className="max-w-6xl mx-auto">
         <h3 className="text-2xl font-bold mb-6">Posted Services</h3>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <div
-              key={service.id}
-              className="bg-white p-4 rounded-xl shadow space-y-3"
-            >
-              <img
-                src={service.image}
-                className="h-40 w-full object-cover rounded"
-                alt=""
-              />
-
-              <h4 className="font-bold">{service.name}</h4>
-              <p className="text-sm">{service.time}</p>
-              <p className="text-sm text-gray-600">{service.description}</p>
-
-              <div className="flex gap-2">
-                <button
-                  onClick={() => handleEdit(service)}
-                  className="flex-1 bg-yellow-500 text-white py-1 rounded"
-                >
-                  Edit
-                </button>
-
-                <button
-                  onClick={() => handleDelete(service.id)}
-                  className="flex-1 bg-red-600 text-white py-1 rounded"
-                >
-                  Delete
-                </button>
+        {loading ? (
+          <p className="text-center text-gray-500 text-xl py-16">
+            Loading services...
+          </p>
+        ) : services.length === 0 ? (
+          <p className="text-center text-gray-500 text-xl py-16">
+            No services added yet
+          </p>
+        ) : (
+          <div className="grid md:grid-cols-3 gap-6">
+            {services.map((service) => (
+              <div
+                key={service.id}
+                className="bg-white p-4 rounded-xl shadow space-y-3"
+              >
+                <img
+                  src={service.image}
+                  className="h-40 w-full object-cover rounded"
+                  alt=""
+                />
+                <h4 className="font-bold">{service.name}</h4>
+                <p className="text-sm">{service.time}</p>
+                <p className="text-sm text-gray-600">{service.description}</p>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => handleEdit(service)}
+                    className="flex-1 bg-yellow-500 text-white py-1 rounded"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(service.id)}
+                    disabled={submitting} // Disable while deleting
+                    className={`flex-1 py-1 rounded text-white ${submitting ? "bg-gray-400" : "bg-red-600"}`}
+                  >
+                    {submitting ? "Deleting..." : "Delete"}
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

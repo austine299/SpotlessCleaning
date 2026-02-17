@@ -14,11 +14,11 @@ export default function AdminRegister() {
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     if (!form.name || !form.email || !form.password)
       return alert("Fill all fields");
 
-    registerAdmin(form);
+    await registerAdmin(form);
 
     alert("Admin registered successfully!");
     navigate("/login");
