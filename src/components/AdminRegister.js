@@ -58,7 +58,7 @@ export default function AdminRegister() {
         </button>
         <p className="text-sm text-center">
           Already have an account?{" "}
-          <Link to="/login" className="text-blue-600">
+          <Link to="/admin/login" className="text-blue-600">
             Login
           </Link>
         </p>
