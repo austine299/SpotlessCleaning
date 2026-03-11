@@ -82,7 +82,7 @@ const Footer = () => {
             </li>
             <li>
               <button
-                onClick={() => scrollToSection(testmonialRef)}
+                onClick={() => scrollToSection(servicesRef)}
                 className="hover:text-blue-300 transition"
               >
                 Book Online
