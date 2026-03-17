@@ -51,7 +51,7 @@ const Contact = () => {
             <div className="flex items-center gap-4">
               <FaEnvelope className="text-blue-700 text-2xl" />
               <span className="text-lg text-gray-700">
-                Imrnspotlesscleaningservices@gmail.com
+                lmrnspotlesscleaningservices@gmail.com
               </span>
             </div>
             <p className="mt-6 text-gray-600">
@@ -63,17 +63,17 @@ const Contact = () => {
               Social Media
             </h2>
             <div className="flex flex-col items-start gap-4">
-              <a href="https://www.instagram.com/preciousegboba/" className="flex gap-3 hover:underline hover:text-blue-600">
-                <FaInstagram className="text-red-400 text-4xl" /><span className="text-lg">preciousegboba</span>
+              <a href="https://www.instagram.com/lmrnspotlesscleaningservices?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="flex gap-3 hover:underline hover:text-blue-600">
+                <FaInstagram className="text-red-400 text-4xl" /><span className="text-lg">Imrnspotlesscleaningsevices</span>
               </a>
-              <a href="https://web.facebook.com/profile.php?id=61586161125066" className="flex gap-3 hover:underline hover:text-blue-600">
-                <FaFacebook className="text-blue-500 text-4xl" /><span className="text-lg">precious Egbobawaye</span>
+              <a href="https://web.facebook.com/profile.php?id=61578511705113" className="flex gap-3 hover:underline hover:text-blue-600">
+                <FaFacebook className="text-blue-500 text-4xl" /><span className="text-lg">LMRN Spotless</span>
               </a>
-              <a href="https://www.tiktok.com/precious4real" className="flex gap-3 hover:underline hover:text-blue-600">
-                <FaTiktok className="bg-black text-4xl text-white rounded-lg" /><span className="text-lg">precious4real</span>
+              <a href="https://www.tiktok.com/@lmrnspotlesscleanings?is_from_webapp=1&sender_device=pc" className="flex gap-3 hover:underline hover:text-blue-600">
+                <FaTiktok className="bg-black text-4xl text-white rounded-lg" /><span className="text-lg">lmrnspotlesscleanings</span>
               </a>
               <a href={`https://wa.me/${contactNum}`} className="flex gap-3 hover:underline hover:text-blue-600">
-                <FaWhatsapp className="bg-green-600 text-4xl text-white rounded-lg" /><span className="text-lg">precious</span>
+                <FaWhatsapp className="bg-green-600 text-4xl text-white rounded-lg" /><span className="text-lg">LMRN Spotless</span>
               </a>
             </div>
           </div>
