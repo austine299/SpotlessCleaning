@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { useContext, useEffect, useMemo } from "react";
 import { CartContext } from "./CartContext";
 import { useLocation, useNavigate } from "react-router-dom";
+import WhyChooseUs from "./WhyChooseUs";
 
 function Home() {
   const {
@@ -74,6 +75,8 @@ function Home() {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <Header />
+      
+      <WhyChooseUs/>
 
       <div ref={servicesRef}>
         <Services />
