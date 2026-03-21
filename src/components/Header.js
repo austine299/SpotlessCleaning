@@ -52,8 +52,12 @@ function Header() {
       >
         {/* HEADLINE */}
         <h1 className="sm:text-4xl text-3xl md:w-[500px] text-center md:text-start text-white font-extrabold drop-shadow-lg mt-7 sm:mt-0">
-          Reliable & Affordable Cleaning Services in Hull, UK – Tailored to Your Needs
+          LMRN SPOTLESS CLEANING SERVICES.
         </h1>
+        <h3 className="sm:text-3xl text-xl md:w-[500px] text-center md:text-start text-white font-extrabold drop-shadow-lg mt-7 sm:mt-0">
+          Reliable & Affordable Cleaning Services in Hull, UK – Tailored to Your
+          Needs
+        </h3>
 
         {/* SUBTEXT */}
         <span className="text-white text-center md:text-start font-medium drop-shadow-md mt-2">
